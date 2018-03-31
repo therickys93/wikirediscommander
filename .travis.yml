@@ -9,3 +9,12 @@ after_success:
   docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"; docker push therickys93/wikirediscommander;
   fi
 - sh set_tags.sh
+deploy:
+  provider: releases
+  file_glob: "true"
+  skip_cleanup: true
+  api_key:
+    secure: tzAYHme5OZhhTh2hONad/4SmSvfzjXGxuPkPklNVQ+loYNvjc0Cz86sKwb4aA0ZlURqm6gSM51BTkIg1Er04R2z3u2/DIwYbha9dc33swgZMG7SkKarkGMLnK1Is1wSmgQWv4F/zLksXdaEZnB+cnYOJUMgMMlX7Ogc9DUCTEGqhOjKMQrKM+orBToOmBIGwk+WJaySeSYy28HqN8u0SVMZ+bGiwQyXvDSjjoYdnSGPqEs8Knh8IRo1CAQCdlaxBkHYNhTAUTJRnvvy8zMzvaOs2XU3sgBy3HLyqypYyy937ayataWUjuH7ElODm6GRFDXTvSTzbcLPGAXaNR+2WcOJjnsz5WOiiUM9WGwqpDicfrY9b4X8NfKFWP5elftw0nr6HBiFYKjjg98uWGTsrLmgYY814OMFmZFwi8UY3JrvZCkv3PHNMYF/A2AKKcLLG+x2teo1Iq/UBtRWOCVH/gRxTuq4Z8V3Ia3h94+YGIfoxM9AODLjXyoMCDof/8X9xnXs/noZxh/UUghcOA4XzcYBIanFxxlk8/PZS76OODd6dxiPnyVyQqkW+gKJSso2a4GYHAZtiv/NhIQzTgXKbXEqPKT5+H+jwEbYJgaGJy2cfcUCtcx6aajGHZQK/qL4ceQ0SCH3eVl6Wqy1WOCYZn/+iuVLKv2U62DV4vpD+U7A=
+  on:
+    branch: master
+    repo: therickys93/wikirediscommander
